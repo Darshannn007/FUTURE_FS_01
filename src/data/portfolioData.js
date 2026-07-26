@@ -228,7 +228,7 @@ export const reviews = [
   },
   {
     quote: "He's the rare dev who cares as much about how the UI feels as whether the API is fast. Rare combination on a small team.",
-    name: "Naman Sharma",
+    name: "Jayesh Bagul",
     role: "CO-Engineer",
   },
   {
