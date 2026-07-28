@@ -572,8 +572,8 @@
 	border: 1px solid transparent;
 	box-shadow: 0 0 30px rgba(124, 77, 255, 0.1);
 	/* animation: pulse 6.5s ease-in-out infinite; */
-	-webkit-mask-image: radial-gradient(circle at 15% 45%, black 50%, transparent 85%);
-	mask-image: radial-gradient(circle at 15% 45%, black 50%, transparent 85%);
+	-webkit-mask-image: radial-gradient(circle at 12% 42%, black 40%, transparent 62%);
+	mask-image: radial-gradient(circle at 12% 42%, black 40%, transparent 62%);
 }
 
 @media (min-width: 768px) {
@@ -789,7 +789,7 @@
 	padding: 12px 14px;
 	border-radius: 16px;
 	border: 1px solid rgba(255, 255, 255, 0.08);
-	background: rgba(12, 12, 22, 0.45);
+	background: rgba(12, 12, 22, 0.92);
 	backdrop-filter: blur(12px) saturate(140%);
 	-webkit-backdrop-filter: blur(12px) saturate(140%);
 	box-shadow: 
