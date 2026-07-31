@@ -61,11 +61,11 @@ const Contact = ({ content }) => {
 
   return (
     <section id="contact" className="section contact">
-      <div className="contact__info reveal" style={{ "--delay": "0.1s" }}>
-        <p className="eyebrow">{content.eyebrow}</p>
-        <h2 className="section__title">{content.title}</h2>
-        <p className="section__subtitle">{content.subtitle}</p>
-        <div className="contact__details">
+      <div className="contact__info">
+        <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{content.eyebrow}</p>
+        <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{content.title}</h2>
+        <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{content.subtitle}</p>
+        <div className="contact__details reveal reveal--blur-up" style={{ "--delay": "0.35s" }}>
           {content.details.map((item) => (
             <div key={item.label}>
               <span>{item.label}</span>
@@ -76,8 +76,8 @@ const Contact = ({ content }) => {
       </div>
       <form
         ref={formRef}
-        className="contact__form reveal"
-        style={{ "--delay": "0.2s" }}
+        className="contact__form reveal reveal--from-right"
+        style={{ "--delay": "0.15s" }}
         onSubmit={handleSubmit}
         aria-busy={status.state === "sending"}
       >

@@ -38,15 +38,18 @@ const Skills = ({ content, skills }) => {
 
   return (
     <section id="skills" className="section skills">
-      <div className="section__header reveal" style={{ "--delay": "0.1s" }}>
+      {/* Header — staggered text cascade from left */}
+      <div className="section__header">
         <div>
-          <p className="eyebrow">{content.eyebrow}</p>
-          <h2 className="section__title">{content.title}</h2>
-          <p className="section__subtitle">{content.subtitle}</p>
+          <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{content.eyebrow}</p>
+          <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{content.title}</h2>
+          <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{content.subtitle}</p>
         </div>
       </div>
+
       <div className="skills__layout">
-        <div className="skills__feature reveal" style={{ "--delay": "0.15s" }}>
+        {/* Feature card — glow burst up */}
+        <div className="skills__feature reveal reveal--glow-up" style={{ "--delay": "0.15s" }}>
           <div className="skills__feature-top">
             <span className="skills__feature-label">Stack Snapshot</span>
           </div>
@@ -68,13 +71,15 @@ const Skills = ({ content, skills }) => {
             ))}
           </div>
         </div>
+
+        {/* Skill panels — staggered slide from right */}
         <div className="skills__stack">
           {grouped.map((group, index) => (
             <article
               key={group.type}
-              className="skills__panel reveal"
+              className="skills__panel reveal reveal--from-right"
               data-tone={group.tone}
-              style={{ "--delay": `${0.2 + index * 0.1}s` }}
+              style={{ "--delay": `${0.1 + index * 0.1}s` }}
             >
               <div className="skills__panel-head">
                 <div className="skills__panel-text">

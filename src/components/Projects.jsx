@@ -1,26 +1,27 @@
 const Projects = ({ content, projects }) => {
   return (
     <section id="projects" className="section projects">
-      <div className="section__header reveal" style={{ "--delay": "0.1s" }}>
+      {/* Header — staggered text cascade from left */}
+      <div className="section__header">
         <div>
-          <p className="eyebrow">{content.eyebrow}</p>
-          <h2 className="section__title">{content.title}</h2>
-          <p className="section__subtitle">{content.subtitle}</p>
+          <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{content.eyebrow}</p>
+          <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{content.title}</h2>
+          <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{content.subtitle}</p>
         </div>
-
-        <a className="btn btn--ghost" href={content.cta.href}>
+        <a className="btn btn--ghost reveal reveal--from-left" style={{ "--delay": "0.35s" }} href={content.cta.href}>
           {content.cta.label}
         </a>
       </div>
 
+      {/* Project cards — 3D flip-up staggered */}
       <div className="projects__grid">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article
             key={project.title}
-            className="project-card reveal"
+            className="project-card reveal reveal--flip-up"
             style={{
               "--accent": project.accentColor,
-              "--delay": "0.2s",
+              "--delay": `${0.1 + index * 0.12}s`,
             }}
           >
             <div className="project-card__glow" />
@@ -71,23 +72,6 @@ const Projects = ({ content, projects }) => {
                 </ul>
               </div>
             )}
-
-            {/* Tech Stack
-            {project.techStack && (
-              <div className="project-card__stack">
-                <h4>Tech Stack</h4>
-
-                <div className="project-card__stack-tags">
-                  {Object.values(project.techStack)
-                    .flat()
-                    .slice(0, 8)
-                    .map((tech) => (
-                      <span key={tech}>{tech}</span>
-                    ))}
-                </div>
-              </div>
-            )}
-            */}
 
             {/* Tags */}
             <div className="project-card__tags">

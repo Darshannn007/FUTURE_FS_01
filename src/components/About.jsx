@@ -1,15 +1,18 @@
 const About = ({ about, facts, reviewsSection, reviews }) => {
   return (
     <section id="about" className="section about">
-      <div className="about__content reveal" style={{ "--delay": "0.1s" }}>
-        <p className="eyebrow">{about.eyebrow}</p>
-        <h2 className="section__title">{about.title}</h2>
-        <p className="section__subtitle">{about.subtitle}</p>
-        <a className="btn btn--outline" href={about.cta.href}>
+      {/* Left column — staggered cascade from left */}
+      <div className="about__content reveal--from-left" style={{ "--delay": "0s" }}>
+        <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{about.eyebrow}</p>
+        <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{about.title}</h2>
+        <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{about.subtitle}</p>
+        <a className="btn btn--outline reveal reveal--from-left" style={{ "--delay": "0.35s" }} href={about.cta.href}>
           {about.cta.label}
         </a>
       </div>
-      <div className="about__panel reveal" style={{ "--delay": "0.2s" }}>
+
+      {/* Right panel — slides in from RIGHT */}
+      <div className="about__panel reveal reveal--from-right" style={{ "--delay": "0.2s" }}>
         <div className="about__visuals">
           <div className="about__blob" />
           <div className="code-card">
@@ -73,21 +76,19 @@ const About = ({ about, facts, reviewsSection, reviews }) => {
             </span>
           </div>
         </div>
-        {/* <div className="facts">
-          {facts.map((fact) => (
-            <div key={fact.title} className="fact-card">
-              <h4>{fact.title}</h4>
-              <p>{fact.detail}</p>
-            </div>
-          ))}
-        </div> */}
       </div>
-      <div className="about__reviews reveal" style={{ "--delay": "0.3s" }}>
-        <h3 className="reviews__title">{reviewsSection.title}</h3>
-        <p className="reviews__subtitle">{reviewsSection.subtitle}</p>
+
+      {/* Reviews — blur-up stagger */}
+      <div className="about__reviews" style={{ "--delay": "0.1s" }}>
+        <h3 className="reviews__title reveal reveal--from-left" style={{ "--delay": "0.1s" }}>{reviewsSection.title}</h3>
+        <p className="reviews__subtitle reveal reveal--blur-up" style={{ "--delay": "0.2s" }}>{reviewsSection.subtitle}</p>
         <div className="reviews__grid">
           {reviews.map((review, index) => (
-            <div key={index} className="review-card">
+            <div
+              key={index}
+              className="review-card reveal reveal--blur-up"
+              style={{ "--delay": `${0.15 + index * 0.12}s` }}
+            >
               <p className="review-card__quote">"{review.quote}"</p>
               <div className="review-card__author">
                 <div className="review-card__avatar" />
