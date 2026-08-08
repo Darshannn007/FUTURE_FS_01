@@ -2,7 +2,7 @@ const About = ({ about, facts, reviewsSection, reviews }) => {
   return (
     <section id="about" className="section about">
       {/* Left column — staggered cascade from left */}
-      <div className="about__content reveal--from-left" style={{ "--delay": "0s" }}>
+      <div className="about__content">
         <p className="eyebrow reveal reveal--from-left" style={{ "--delay": "0.05s" }}>{about.eyebrow}</p>
         <h2 className="section__title reveal reveal--from-left" style={{ "--delay": "0.15s" }}>{about.title}</h2>
         <p className="section__subtitle reveal reveal--from-left" style={{ "--delay": "0.25s" }}>{about.subtitle}</p>

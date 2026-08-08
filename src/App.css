@@ -887,7 +887,7 @@
 }
 
 .section.about {
-	padding: 20px 0.5rem;
+	padding: 20px 1.25rem;
 	max-width: 1320px;
 }
 
@@ -2156,6 +2156,7 @@ textarea:focus {
 .reveal--from-right.is-visible {
 	transform: translate3d(0, 0, 0) scale(1);
 }
+
 
 /* === BLUR UP === */
 .reveal--blur-up {
