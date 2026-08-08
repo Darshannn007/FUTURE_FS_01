@@ -56,7 +56,7 @@ const App = () => {
             }
           });
         },
-        { threshold: 0.02, rootMargin: "0px 0px 150px 0px" }
+        { threshold: 0.05 }
       );
 
       items.forEach((item) => observer.observe(item));

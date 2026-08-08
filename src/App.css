@@ -2141,13 +2141,6 @@ textarea:focus {
 	transform: translate3d(0, 0, 0) scale(1);
 }
 
-/* Mobile: reveal faster without waiting for long desktop stagger delays */
-@media (max-width: 768px) {
-	.reveal {
-		transition-delay: 0.05s !important;
-	}
-}
-
 /* === FROM LEFT === */
 .reveal--from-left {
 	transform: translate3d(-56px, 0, 0) scale(0.97);
@@ -2195,13 +2188,19 @@ textarea:focus {
 	filter: brightness(1) saturate(1);
 }
 
-/* === 3D FLIP UP (project cards) === */
+/* === SLEEK CARD REVEAL (project cards) === */
+.reveal--card,
 .reveal--flip-up {
-	transform: perspective(900px) rotateX(22deg) translate3d(0, 40px, 0);
-	transform-origin: bottom center;
+	transform: translate3d(0, 24px, 0) scale(0.96);
+	opacity: 0;
+	filter: blur(4px);
+	transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
 }
+.reveal--card.is-visible,
 .reveal--flip-up.is-visible {
-	transform: perspective(900px) rotateX(0deg) translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0) scale(1);
+	opacity: 1;
+	filter: blur(0px);
 }
 
 /* === TIMELINE DROP IN === */

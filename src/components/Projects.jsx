@@ -18,10 +18,10 @@ const Projects = ({ content, projects }) => {
         {projects.map((project, index) => (
           <article
             key={project.title}
-            className="project-card reveal reveal--flip-up"
+            className="project-card reveal reveal--card"
             style={{
               "--accent": project.accentColor,
-              "--delay": `${0.1 + index * 0.12}s`,
+              "--delay": `${0.05 + index * 0.06}s`,
             }}
           >
             <div className="project-card__glow" />
