@@ -37,8 +37,7 @@ const About = ({ about, facts, reviewsSection, reviews }) => {
   status: "Available for Hire",
   experience: "2+ Years Dev Experience",
   projectsCompleted: "5+ Finished Projects",
-  valueProposed: "complex designs into pixel-perfect code",
-  guarantee: "Clean, performant & on-time delivery"
+  valueProposed: "complex designs into pixel-perfect code"
 };`}</code>
             </pre>
           </div>

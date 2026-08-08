@@ -2141,6 +2141,13 @@ textarea:focus {
 	transform: translate3d(0, 0, 0) scale(1);
 }
 
+/* Mobile: reveal faster without waiting for long desktop stagger delays */
+@media (max-width: 768px) {
+	.reveal {
+		transition-delay: 0.05s !important;
+	}
+}
+
 /* === FROM LEFT === */
 .reveal--from-left {
 	transform: translate3d(-56px, 0, 0) scale(0.97);
