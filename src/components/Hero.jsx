@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import heroImage from "../assets/hero.png";
+import heroImage from "../assets/hero4.png";
 import Stats from "./Stats";
 
 const splitText = (text, className = "") =>
