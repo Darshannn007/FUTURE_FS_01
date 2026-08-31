@@ -208,10 +208,26 @@ export const contactSection = {
   title: "Let's Work Together",
   subtitle:
     "Have a project idea or want to collaborate? Drop a message and let's build something legendary.",
+  availability: "Available for Freelance & Full-time Roles",
   details: [
-    { label: "Email", value: "darshandesale143@gmail.com" },
-    { label: "Phone", value: "+91 9157461505" },
-    { label: "Location", value: "India" },
+    {
+      type: "email",
+      label: "Email",
+      value: "darshandesale143@gmail.com",
+      href: "mailto:darshandesale143@gmail.com",
+    },
+    {
+      type: "phone",
+      label: "Phone",
+      value: "+91 9157461505",
+      href: "tel:+919157461505",
+    },
+    {
+      type: "location",
+      label: "Location",
+      value: "Maharashtra, India",
+      href: "https://maps.google.com/?q=Maharashtra,India",
+    },
   ],
 };
 
@@ -238,4 +254,14 @@ export const reviews = [
   },
 ];
 
-export const footerText = "2026 © Darshan Desale. All rights reserved.";
+export const footerData = {
+  brand: "Darshan Desale",
+  role: "Full Stack Java Developer",
+  tagline: "Building clean, cinematic & scalable web applications with React & Spring Boot.",
+  status: "Open to Opportunities",
+  copyright: "© 2026 Darshan Desale. All rights reserved.",
+  builtWith: "Crafted with React, Vite & Modern CSS",
+};
+
+export const footerText = "© 2026 Darshan Desale. All rights reserved.";
+

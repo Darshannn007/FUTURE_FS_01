@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
-import heroImage from "../assets/hero4.png";
+import heroImage from "../assets/hero_portrait.png";
 import Stats from "./Stats";
 
 const splitText = (text, className = "") =>
@@ -176,6 +176,12 @@ const Hero = ({ data, stats }) => {
     [lastName]
   );
 
+  // Scroll-linked disappearing parallax effect for hero visual
+  const { scrollY } = useScroll();
+  const visualOpacity = useTransform(scrollY, [0, 420], [1, 0]);
+  const visualScale = useTransform(scrollY, [0, 420], [1, 0.92]);
+  const visualY = useTransform(scrollY, [0, 420], [0, -40]);
+
   useLayoutEffect(() => {
     if (!headingRef.current) return;
 
@@ -201,8 +207,18 @@ const Hero = ({ data, stats }) => {
 
   return (
     <section id="home" className="hero">
+      {/* Background Animated Aurora Mesh Gradient */}
+      <div className="hero__aurora" aria-hidden="true">
+        <div className="hero__aurora-blob hero__aurora-blob--1" />
+        <div className="hero__aurora-blob hero__aurora-blob--2" />
+        <div className="hero__aurora-blob hero__aurora-blob--3" />
+      </div>
+
       <div className="hero__content reveal" style={{ "--delay": "0.1s" }}>
-        <p className="eyebrow">{greeting}</p>
+        <div className="hero__badge">
+          <span className="hero__badge-dot" />
+          <p className="eyebrow">{greeting}</p>
+        </div>
         <motion.h1
           ref={headingRef}
           className="hero__title"
@@ -239,27 +255,48 @@ const Hero = ({ data, stats }) => {
         <Stats stats={stats} />
       </div>
 
-      <div className="hero__visual reveal" style={{ "--delay": "0.2s" }}>
-        <div className="hero__orb">
-          <img
-            className="hero__figure hero__figure--image"
-            src={heroImage}
-            alt="Darshan Desale"
-            loading="lazy"
-          />
+      {/* Right Column: Clean Cutout Portrait with Halo + Scroll Fade Animation */}
+      <motion.div
+        className="hero__visual reveal"
+        style={{
+          "--delay": "0.2s",
+          opacity: visualOpacity,
+          scale: visualScale,
+          y: visualY,
+        }}
+      >
+        <div className="hero__cutout-container">
+          {/* Ambient Breathing Radial Glow & Orbital Halo Ring */}
+          <div className="hero__halo-glow" aria-hidden="true" />
+          <div className="hero__halo-ring" aria-hidden="true" />
+
+          {/* Seamless Cutout Portrait with soft bottom dissolve */}
+          <div className="hero__cutout-frame">
+            <img
+              className="hero__cutout-image"
+              src={heroImage}
+              alt="Darshan Desale"
+              loading="eager"
+            />
+          </div>
+
+          {/* Floating Status Badges */}
+          <div className="hero__floating hero__floating--top">
+            <span className="floating__indicator" />
+            <div className="floating__text">
+              <p className="floating__title">{floatingTop.title}</p>
+              <p className="floating__value">{floatingTop.value}</p>
+            </div>
+          </div>
+          <div className="hero__floating hero__floating--bottom">
+            <span className="floating__indicator floating__indicator--pulse" />
+            <div className="floating__text">
+              <p className="floating__title">{floatingBottom.title}</p>
+              <p className="floating__value">{floatingBottom.value}</p>
+            </div>
+          </div>
         </div>
-        <div className="hero__floating hero__floating--top">
-          <p className="floating__title">{floatingTop.title}</p>
-          <p className="floating__value">{floatingTop.value}</p>
-        </div>
-        <div className="hero__floating hero__floating--bottom">
-          <p className="floating__title">{floatingBottom.title}</p>
-          <p className="floating__value">{floatingBottom.value}</p>
-        </div>
-        {/* <div className="hero__floating hero__floating--opportunity">
-          <p className="floating__title">{floatingOpportunity.title}</p>
-          <p className="floating__value">{floatingOpportunity.value}</p>
-        </div> */}
+
         <div className="social-rail">
           {socialLinks.map((link) => {
             const meta = getSocialMeta(link.href);
@@ -284,7 +321,7 @@ const Hero = ({ data, stats }) => {
             );
           })}
         </div>
-      </div>
+      </motion.div>
 
       <div className="scroll-indicator">{scrollHint}</div>
     </section>

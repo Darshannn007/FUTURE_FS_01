@@ -25,6 +25,7 @@ import {
   contactSection,
   reviewsSection,
   reviews,
+  footerData,
   footerText,
 } from "./data/portfolioData";
 
@@ -81,7 +82,12 @@ const App = () => {
         <Experience content={experienceSection} timeline={timeline} />
         <Contact content={contactSection} />
       </main>
-      <Footer text={footerText} />
+      <Footer
+        data={footerData}
+        links={navLinks}
+        socialLinks={hero.socialLinks}
+        text={footerText}
+      />
     </div>
   );
 };
