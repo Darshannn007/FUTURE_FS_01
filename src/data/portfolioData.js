@@ -31,7 +31,7 @@ export const hero = {
 
 export const stats = [
   { value: "3+", label: "Years of academic Experience" },
-  { value: "2+", label: "Projects Completed" },
+  { value: "6+", label: "Projects Completed" },
   { value: "15+", label: "Core Technologies" },
 ];
 
