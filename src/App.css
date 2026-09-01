@@ -624,7 +624,7 @@
 	height: clamp(520px, 74vh, 700px);
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 	will-change: transform, opacity;
 }
 
@@ -706,7 +706,7 @@
 	width: 100%;
 	height: 100%;
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	justify-content: center;
 	background: transparent;
 	border: none;
@@ -717,17 +717,18 @@
 }
 
 .hero__cutout-image {
-	width: 100%;
-	height: 100%;
+	width: 90%;
+	height: 90%;
 	object-fit: contain;
-	object-position: bottom center;
+	object-position: center;
 	filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
 	pointer-events: none;
 	transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+	transform: none;
 }
 
 .hero__cutout-container:hover .hero__cutout-image {
-	transform: scale(1.03) translateY(-4px);
+	transform: scale(1.03);
 	filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.75));
 }
 
